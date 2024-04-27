@@ -1,0 +1,84 @@
+nav{
+    position: fixed;
+    width: 100%;
+}
+
+div.circle-gray{
+    background-color: gray;
+    border-radius: 100%;
+    height: 250px;
+    width: 250px;
+    border : solid 2px;
+}
+
+
+
+div.rectangle-gray{
+    background-color: rgba(128,128,128,0.7);
+    border:solid 2px;
+    height: 50px;
+    width: 350px;
+    margin-bottom: 30px;
+    margin-top: 100%;
+    transition: 1s;
+}
+
+div.rectangle-gray:hover{
+    background-color: rgba(255,255,255,0.9);
+}
+
+div.margin-card-logo{
+    margin-left: 225%;
+}
+
+div.margin-card{
+    margin-top: 100%;
+}
+
+div.margin-etiquettes{
+    margin-left: 20px;
+}
+
+div.color_upload{
+    background : linear-gradient(to right,#525252,#153D49);
+}
+
+button.button_color{
+    background : linear-gradient(to right,#525252,#B8B8B8);
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    color:white;
+    font-size: 30px;
+    margin-top: 100px;;
+}
+
+div.upload_link{
+    margin-top: 50px;
+}
+
+img.upload_icon{
+    width: 80px; 
+    height: 80px;
+    margin-top:7px;
+    margin-left: 70px;
+}
+
+p.police_upload{
+    font-size: 60px;
+    margin-right: 70px;
+}
+  
+  #upload-btn {
+    width: 500px;
+    height: 100px;
+    background : linear-gradient(to right,#525252,#B8B8B8);
+    color: #fff;
+    border: dashed black;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  #file-name {
+    margin-top: 20px;
+  }

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="script.js"></script>
+</head>
+<body>
+<nav>
+    <div class="bg-cover bg-center" style="background-image: url(../image/fond_navbar.png)">
+        <div class="grid grid-cols-4 gap-4">
+            <img src="../image/Logo.png" href="" alt="Logo Ambre" class="size-40">
+            <a href="" class="text-white my-14 text-[25px]">Upload</a>
+            <a href="" class="text-white my-14 text-[25px]">A propos</a>
+            <a href="" class="text-white my-14 text-[25px]">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <div class="bg-cover-bg-center bg-black">
+      On aime faire des tests
+    </div>
+
+    <div class="bg-cover bg-center" style="background-image: url(../image/giphy.gif); height: 100vh;">
+      <div class="">
+        <div class="grid grid-cols-5">
+          <div class="margin-card-logo margin-card">
+            <div class="margin-etiquettes">
+              <div class="rectangle-gray grid grid-cols-2">
+                <a href="" class=" text-card col-start-2 text-[25px] ml-5">Upload</a>
+              </div>
+              <div class="rectangle-gray grid grid-cols-2">
+                <a href="" class=" text-card col-start-2 text-[25px] ml-3">A propos</a>
+              </div>
+              <div class="rectangle-gray grid grid-cols-2">
+                <a href="" class=" text-card col-start-2 text-[25px] ml-5">Contact</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-start-3 circle-gray margin-card">
+            <img src="../image/Logo.png" href="" alt="Logo Ambre" class="ml-5">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-cover-bg-center bg-black">
+      On aime faire des tests
+    </div>
+
+    <div class="bg-cover bg-center color_upload h-96">
+      <div class="flex justify-center">
+        <button class="button_color" href="">Jouer</button>
+      </div>
+      <div class="upload_link flex justify-center">
+        <label for="file-input" id="upload-btn" class="grid grid-cols-2">
+          <img src="../image/logo_upload.jpg" class="col-start-1 upload_icon" alt="Upload son fichier">
+          <p class="police_upload flex justify-center col-start-2">Upload</p>
+        </label>
+        <input type="file" id="file-input" style="display: none;">
+      </div>
+    </div>
+
+    <div class="bg-cover-bg-center bg-black">
+      On aime faire des tests
+    </div>
+    
+</body>
+</body>
+</html>
