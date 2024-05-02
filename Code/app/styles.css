@@ -3,6 +3,8 @@ nav{
     width: 100%;
 }
 
+
+
 div.circle-gray{
     background-color: gray;
     border-radius: 100%;
@@ -128,3 +130,11 @@ div.color_form{
     background : linear-gradient(to right,#000000,#153D49);
 }
 
+footer{
+  width: 100%;
+}
+
+ul.texte-footer{
+  color:white;
+  font-size: 25px;
+}
