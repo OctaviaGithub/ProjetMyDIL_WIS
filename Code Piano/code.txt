@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano en CSS avec Changement de Couleur des Touches</title>
+    <style>
+        /* Styles du piano */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100vh;
+            background-color: #1F2937;
+            margin: 0;
+        }
+        .piano {
+            display: flex;
+            position: relative;
+        }
+        .white-key {
+            width: 60px;
+            height: 200px;
+            background-color: white;
+            border: 1px solid black;
+            box-sizing: border-box;
+            position: relative;
+            transition: background-color 0.1s; /* Ajout d'une transition rapide */
+        }
+        .black-key {
+            width: 40px;
+            height: 120px;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 45px;
+            z-index: 1;
+        }
+        /* les notes N et leurs positionnements */
+        .white-key:nth-of-type(2) .black-key { left: 45px; }
+        .white-key:nth-of-type(3) .black-key { left: 45px; }
+        .white-key:nth-of-type(4) .black-key { left: 45px; }
+        .white-key:nth-of-type(6) .black-key { left: 45px; }
+        .white-key:nth-of-type(7) .black-key { left: 45px; }
+        .white-key:nth-of-type(9) .black-key { left: 45px; }
+        .white-key:nth-of-type(10) .black-key { left: 45px; }
+        .white-key:nth-of-type(11) .black-key { left: 45px; }
+        .white-key:nth-of-type(13) .black-key { left: 45px; }
+        .white-key:nth-of-type(14) .black-key { left: 45px; }
+
+        /* Conteneur pour la note qui descend */
+        .note-container {
+            position: absolute;
+            top: -100vh; /* Positionné tout en haut de la page */
+            width: 100%;
+            height: 100vh; /* Hauteur de la page */
+            overflow: hidden;
+        }
+
+        .note_container_noir {
+            position: absolute;
+            top: -100vh; /* Positionné tout en haut de la page */
+            width: 100%;
+            height: 100vh; /* Hauteur de la page */
+            overflow: hidden;
+        }
+
+        .note {
+            width: 50px;
+            height: 20px;
+            background-color: rgb(78, 14, 162);
+            border: 1px solid black;
+            box-sizing: border-box;
+            position: absolute;
+            left: 5px; /* Positionné correctement par rapport à la touche blanche */
+            border-radius: 20px;
+            z-index: 2;
+            animation: descend 5s linear infinite, changeColor 5s linear infinite;
+        }
+
+        .note_black {
+            width: 40px;
+            height: 703.2px;
+            background-color: rgb(38, 16, 68);
+            border: 1px solid black;
+            box-sizing: border-box;
+            position: absolute;
+            left: 45px; /* Positionné correctement par rapport à la touche blanche */
+            border-radius: 20px;
+            z-index: 1;
+            animation: descend 5s linear infinite, changeColor 5s linear infinite;
+        }
+        @keyframes descend {
+            0% { top: -20px; }
+            95% { top: 700px; }
+            100% { top: 700px; }
+        }
+
+        @keyframes changeColor {
+            0% { background-color: rgb(84, 12, 177); }
+            95% { background-color: rgb(31, 5, 65); }
+            100% { background-color: transparent; }
+        }
+
+        /* Changement de couleur des touches blanches */
+        .white-key.active {
+            background-color: rgb(31, 5, 65); /* Couleur lorsque la note touche la touche blanche */
+        }
+
+        .black-key.active {
+            background-color: rgb(52, 23, 89); /* Couleur lorsque la note touche la touche blanche */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="piano">
+        <div class="white-key" id="note1">
+            <div class="black-key" id="note2">
+                <div class="note-container">
+                    <div class="note_black"></div>
+                    <div class="note_black" style="animation-delay: 1.5s;"></div>
+                </div>
+            </div>
+            <div class="note-container">
+                <div class="note"></div>
+                <div class="note" style="animation-delay: 0.7s;"></div> <!-- Note avec délai -->
+            </div>
+        </div>
+       
+        <div class="white-key" id="note3">
+            <div class="black-key" id="note4">
+                <div class="note_column_noir"></div>
+            </div>
+            <div class="note-column"></div>
+            <div class="note-container">
+                <div class="note" style="animation-delay: 0.6s;"></div> <!-- Note avec délai -->
+            </div>
+        </div>
+        <div class="white-key" id="note5">
+            <div class="black-key" id="note6">
+                <div class="note-container">
+                </div>
+                <div class="note_column_noir"></div>
+            </div>
+            <div class="note-column"></div>
+            <div class="note-container">
+                <div class="note"></div>
+                <div class="note" style="animation-delay: 2s;"></div> <!-- Note avec délai -->
+            </div>
+        </div>
+
+        <div class="white-key" id="note7">
+            <div class="note-column"></div>
+            
+        </div>
+
+        <div class="white-key" id="note8">
+            <div class="black-key" id="note9">
+                <div class="note_column_noir"></div>
+            </div>
+            <div class="note-column"></div>
+        </div>
+
+        <div class="white-key" id="note10">
+            <div class="black-key" id="note11">
+                <div class="note-container">
+                </div>
+                <div class="note_column_noir"></div>
+            </div>
+            <div class="note-column"></div>
+        </div>
+
+        <div class="white-key" id="note12">
+            <div class="note-column"></div>
+            <div class="note-container">
+                <div class="note"></div>
+                <div class="note" style="animation-delay: 0.5s;"></div> <!-- Note avec délai -->
+            </div>
+        </div>
+
+        <div class="white-key" id="note13">
+            <div class="black-key" id="note14">
+                <div class="note-container">
+                </div>
+                <div class="note_column_noir"></div>
+            </div>
+            <div class="note-column"></div>
+        </div>
+
+        <div class="white-key" id="note15">
+            <div class="black-key" id="note16">
+                <div class="note_column_noir"></div>
+                
+            </div>
+            <div class="note-column"></div>
+        </div>
+
+        <div class="white-key" id="note17">
+            <div class="black-key" id="note18">
+                <div class="note_column_noir"></div>
+            </div>
+            <div class="note-column"></div>
+            <div class="note-container">
+                <div class="note" style="animation-delay: 4s;"></div> <!-- Note avec délai -->
+            </div>
+        </div>
+
+        <div class="white-key" id="note19">
+            <div class="note-column"></div>
+        </div>
+
+        <div class="white-key" id="note20">
+            <div class="black-key" id="note21">
+                <div class="note_column_noir"></div>
+            </div>
+            <div class="note-column"></div>
+        </div>
+
+        <div class="white-key" id="note22">
+            <div class="black-key" id="note23">
+                <div class="note_column_noir"></div>
+            </div>
+            <div class="note-column"></div>
+            <div class="note-container">
+                <div class="note"></div>
+                <div class="note" style="animation-delay: 3.6s;"></div> <!-- Note avec délai -->
+            </div>
+        </div>
+
+        <div class="white-key" id="note24">
+            <div class="note-column"></div>
+        </div>
+    </div>
+    </div>
+    <script>
+        // Utilisation de JavaScript pour ajouter la classe active lorsque la note touche la touche blanche
+        document.querySelectorAll('.note').forEach(note => {
+            note.addEventListener('animationiteration', () => {
+                const whiteKey = note.parentElement.parentElement;
+                whiteKey.classList.add('active');
+                setTimeout(() => {
+                    whiteKey.classList.remove('active');
+                }, 100); // Durée pendant laquelle la touche reste illuminée
+            });
+        })
+    </script>
+</body>
+</html>
