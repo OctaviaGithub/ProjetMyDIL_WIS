@@ -78,14 +78,14 @@
 
     <div id="upload" class="bg-cover bg-center bg-white dark:bg-gray-900 h-96">
       <div class="flex justify-center">
-        <button class="button_color" href=""><h2>Jouer votre morceau midi</h2></button>
+        <button id="play-button" class="button_color" href="" disabled><h2><a href="../../Code Piano/Test_css_Le_bon.html">Jouer votre morceau midi</a></h2></button>
       </div>
       <div class="upload_link flex justify-center">
         <label for="file-input" id="upload-btn" class="grid grid-cols-2">
           <img src="../image/logo_upload.jpg" class="col-start-1 upload_icon" alt="Upload son fichier">
           <p class="police_upload flex justify-center col-start-2">Upload</p>
         </label>
-        <input type="file" id="file-input" style="display: none;">
+        <input type="file" id="file-input" style="display: none;" accept=".mid" onchange="redirectToPage()">
       </div>
     </div>
 

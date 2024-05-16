@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
             height: 100vh;
             background-color: #1F2937;
             margin: 0;
+            overflow-x: hidden
         }
         .piano {
             display: flex;
@@ -25,7 +27,8 @@
             border: 1px solid black;
             box-sizing: border-box;
             position: relative;
-            transition: background-color 0.1s; /* Ajout d'une transition rapide */
+            transition: background-color 0.3s, transform 0.1s;
+
         }
         .black-key {
             width: 40px;
@@ -66,7 +69,7 @@
         }
 
         .note {
-            width: 50px;
+            width: 45px;
             height: 20px;
             background-color: rgb(78, 14, 162);
             border: 1px solid black;
@@ -75,25 +78,24 @@
             left: 5px; /* Positionné correctement par rapport à la touche blanche */
             border-radius: 20px;
             z-index: 2;
-            animation: descend 5s linear infinite, changeColor 5s linear infinite;
+            animation: descend 5000ms linear infinite, changeColor 5000ms linear infinite;
         }
 
         .note_black {
             width: 40px;
-            height: 703.2px;
+            height: 20px;
             background-color: rgb(38, 16, 68);
             border: 1px solid black;
             box-sizing: border-box;
             position: absolute;
-            left: 45px; /* Positionné correctement par rapport à la touche blanche */
+            left: 50px; /* Positionné correctement par rapport à la touche blanche */
             border-radius: 20px;
             z-index: 1;
             animation: descend 5s linear infinite, changeColor 5s linear infinite;
         }
         @keyframes descend {
-            0% { top: -20px; }
-            95% { top: 700px; }
-            100% { top: 700px; }
+            0% { top: -20%; }
+            98.9% { top: 99%; }
         }
 
         @keyframes changeColor {
@@ -111,15 +113,109 @@
             background-color: rgb(52, 23, 89); /* Couleur lorsque la note touche la touche blanche */
         }
 
+        .button_color{
+            background : linear-gradient(to right,#525252,#B8B8B8);
+            border: solid 1px black;
+            border-radius: 20px;
+            width: 250px;
+            height: 50px;
+            margin-left: -50%;
+        }
+
+        .explosion {
+            position: absolute;
+            width: 50px;
+            height: 10px; 
+            background-color: rgb(84, 12, 177); 
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;  
+            top: -11px;
+            opacity: 0;
+            filter:blur(8px); 
+        }
+
+        .white-key.active .explosion {
+            opacity: 1; /* Rend le petit rond visible */
+            animation: explosion 0.5s ease-out forwards; /* Animation du petit rond */
+        }
+
+        @keyframes explosion {
+            0% {
+                transform: translateY(0) scaleX(1); /* Taille initiale du petit rond */
+                opacity: 0;
+            }
+            15%{
+                opacity: 1;
+            }
+            50%{
+                transform : translateY(-150px) scaleX(3);
+            }
+            95%{
+                opacity: 0;
+            }
+            100% {
+                transform : translateY(-300px) scaleX(6) /* Taille finale du petit rond */
+                 /* Le petit rond devient transparent à la fin de l'animation */
+            }
+        }
+
+
     </style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          clifford: '#da373d',
+        }
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const whiteKeys = document.querySelectorAll('.white-key');
+
+    whiteKeys.forEach(function (whiteKey) {
+        whiteKey.addEventListener('animationiteration', function () {
+            const explosion = whiteKey.querySelector('.explosion');
+            explosion.style.opacity = '1'; // Rend le carré bleu visible
+
+            setTimeout(function () {
+                explosion.style.opacity = '0'; // Réinitialise l'opacité du carré après 300ms
+            }, 300);
+        });
+    });
+});
+</script>
 </head>
+
+
+
 <body>
+    <script>
+        console.log("Test");
+        document.addEventListener('DOMContentLoaded', function () {
+            let audio = new Audio("Konga.mp3");
+            document.body.addEventListener('click', function () {
+            audio.play();
+        });
+    });
+    </script>
+
+    <nav>
+        <div class="grid grid-cols-2">
+            <button class="col-start-1 button_color" style="margin-bottom: 300%;">
+                <a class="" href="../Code/app/index.html"><h2>Revenir sur la page d'accueil</h2></a>
+            </button>
+        </div>
+    </nav>
     <div class="piano">
         <div class="white-key" id="note1">
+            <div class="explosion"></div> <!-- Div pour l'explosion -->
             <div class="black-key" id="note2">
                 <div class="note-container">
-                    <div class="note_black"></div>
-                    <div class="note_black" style="animation-delay: 1.5s;"></div>
                 </div>
             </div>
             <div class="note-container">
@@ -129,7 +225,9 @@
         </div>
        
         <div class="white-key" id="note3">
+            <div class="explosion"></div>
             <div class="black-key" id="note4">
+                <div class="explosion"></div>
                 <div class="note_column_noir"></div>
             </div>
             <div class="note-column"></div>
@@ -138,7 +236,9 @@
             </div>
         </div>
         <div class="white-key" id="note5">
+            <div class="explosion"></div>
             <div class="black-key" id="note6">
+                <div class="explosion"></div>
                 <div class="note-container">
                 </div>
                 <div class="note_column_noir"></div>
@@ -151,19 +251,24 @@
         </div>
 
         <div class="white-key" id="note7">
+            <div class="explosion"></div>
             <div class="note-column"></div>
             
         </div>
 
         <div class="white-key" id="note8">
+            <div class="explosion"></div>
             <div class="black-key" id="note9">
+                <div class="explosion"></div>
                 <div class="note_column_noir"></div>
             </div>
             <div class="note-column"></div>
         </div>
 
         <div class="white-key" id="note10">
+            <div class="explosion"></div>
             <div class="black-key" id="note11">
+                <div class="explosion"></div>
                 <div class="note-container">
                 </div>
                 <div class="note_column_noir"></div>
@@ -172,6 +277,7 @@
         </div>
 
         <div class="white-key" id="note12">
+            <div class="explosion"></div>
             <div class="note-column"></div>
             <div class="note-container">
                 <div class="note"></div>
@@ -180,7 +286,9 @@
         </div>
 
         <div class="white-key" id="note13">
+            <div class="explosion"></div>
             <div class="black-key" id="note14">
+                <div class="explosion"></div>
                 <div class="note-container">
                 </div>
                 <div class="note_column_noir"></div>
@@ -189,7 +297,9 @@
         </div>
 
         <div class="white-key" id="note15">
+            <div class="explosion"></div>
             <div class="black-key" id="note16">
+                <div class="explosion"></div>
                 <div class="note_column_noir"></div>
                 
             </div>
@@ -197,7 +307,9 @@
         </div>
 
         <div class="white-key" id="note17">
+            <div class="explosion"></div>
             <div class="black-key" id="note18">
+                <div class="explosion"></div>
                 <div class="note_column_noir"></div>
             </div>
             <div class="note-column"></div>
@@ -207,18 +319,23 @@
         </div>
 
         <div class="white-key" id="note19">
+            <div class="explosion"></div>
             <div class="note-column"></div>
         </div>
 
         <div class="white-key" id="note20">
+            <div class="explosion"></div>
             <div class="black-key" id="note21">
+                <div class="explosion"></div>
                 <div class="note_column_noir"></div>
             </div>
             <div class="note-column"></div>
         </div>
 
         <div class="white-key" id="note22">
+            <div class="explosion"></div>
             <div class="black-key" id="note23">
+                <div class="explosion"></div>
                 <div class="note_column_noir"></div>
             </div>
             <div class="note-column"></div>
@@ -229,6 +346,7 @@
         </div>
 
         <div class="white-key" id="note24">
+            <div class="explosion"></div>
             <div class="note-column"></div>
         </div>
     </div>
@@ -241,9 +359,10 @@
                 whiteKey.classList.add('active');
                 setTimeout(() => {
                     whiteKey.classList.remove('active');
-                }, 100); // Durée pendant laquelle la touche reste illuminée
+                }, 90); // Durée pendant laquelle la touche reste illuminée
             });
-        })
+        });
     </script>
+    
 </body>
 </html>
