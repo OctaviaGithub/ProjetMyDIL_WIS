@@ -1,0 +1,141 @@
+nav{
+    position: fixed;
+    width: 100%;
+}
+
+div.circle-gray{
+    background-color: gray;
+    border-radius: 100%;
+    height: 250px;
+    width: 250px;
+    border : solid 2px;
+}
+
+div.rectangle-gray{
+    background-color: rgba(128,128,128,0.7);
+    border-radius: 20px;;
+    border:solid 2px;
+    height: 50px;
+    width: 350px;
+    margin-bottom: 30px;
+    margin-top: 100%;
+    transition: 1s;
+}
+
+div.rectangle-gray:hover{
+    background-color: rgba(255,255,255,0.9);
+}
+
+div.margin-card-logo{
+    margin-left: 225%;
+}
+
+div.margin-card{
+    margin-top:100%;
+}
+
+div.margin-etiquettes{
+    margin-left: 20px;
+}
+
+div.color_upload{
+    background : linear-gradient(to right,#000000,#153D49);
+}
+
+button.button_color{
+    background : linear-gradient(to right,#525252,#B8B8B8);
+    width: 380px;
+    height: 50px;
+    border-radius: 20px;
+    color:white;
+    font-size: 30px;
+    margin-top: 100px;
+}
+
+div.upload_link{
+    margin-top: 50px;
+}
+
+img.upload_icon{
+    width: 80px; 
+    height: 80px;
+    margin-top:7px;
+    margin-left: 70px;
+}
+
+p.police_upload{
+    font-size: 60px;
+    margin-right: 70px;
+}
+  
+  #upload-btn {
+    width: 500px;
+    height: 100px;
+    background : linear-gradient(to right,#525252,#B8B8B8);
+    color: #fff;
+    border: dashed black;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  #file-name {
+    margin-top: 20px;
+  }
+
+
+  h2.title_a_propos{
+    color:white;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  div.font_title_a_propos{
+    background : linear-gradient(to right,#525252,#B8B8B8);
+    border-radius: 20px;
+    border:solid 2px black;
+  }
+
+  div.background-text-col-1{
+    background-color: rgba(82,82,82,0.7);
+    border: solid 2px black;
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-right: 10%;
+    height:80vh
+  }
+  
+  p.police-col-1{
+    color:white;
+    font-size: 25px;
+    margin-top: 10px;;
+  }
+
+  div.background-text-col-2{
+    background-color: rgba(82,82,82,0.7);
+    border: solid 2px black;
+    border-radius: 20px;
+    margin-top: 3%;
+    margin-right: 10%;
+    height: 29vh;
+  }
+  
+  p.police-col-2{
+    color:white;
+    font-size: 25px;
+  }
+
+div.color_form{
+    background : linear-gradient(to right,#000000,#153D49);
+}
+
+footer{
+  width: 100%;
+}
+
+ul.texte-footer{
+  color:white;
+  font-size: 25px;
+}
